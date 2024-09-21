@@ -2,15 +2,25 @@
   "name": "basic-node-ts-setup",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
+    "dev": "npx ts-node src/index.ts",
+    "dev:watch": "nodemon src -e ts,json --exec \"yarn run dev\"",
+    "clean": "rimraf ./build",
+    "build": "yarn run clean && tsc",
+    "start": "node ./build/src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.5.5",
+    "nodemon": "^3.1.7",
     "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5",
+    "express": "^4.21.0"
   }
 }
